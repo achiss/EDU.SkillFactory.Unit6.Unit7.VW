@@ -1,0 +1,12 @@
+﻿
+/*
+ * 
+ */
+ 
+namespace VWork
+{
+ class Program
+ {
+  
+ }
+}
