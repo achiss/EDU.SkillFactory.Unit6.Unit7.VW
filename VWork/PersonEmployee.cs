@@ -21,14 +21,22 @@ public abstract class PersonEmployee : Person
         }
     }
     
-    private string EmployeePosition { get; set; }
+    protected string EmployeePosition { get; set; }
     
     protected bool EmloyeeOnShift { get; set; }
     
     protected double EmployeeSalary { get; set; }
     
     protected double EmployeeContractSalary { get; set; }
-    
+
+    protected PersonEmployee(string id, string name, string surname, string position, double salary) : base()
+    {
+        PersonId = id;
+        PersonName = name;
+        EmployeeSurname = surname;
+        EmployeePosition = position;
+        EmployeeSalary = salary;
+    }
     
     protected PersonEmployee(string id, string name, string surname, byte age, string phone, bool personType, bool isOnShift, string position) :
         base(id, name, age, phone, personType)
@@ -39,7 +47,7 @@ public abstract class PersonEmployee : Person
         EmployeePosition = position;
     }
 
-    protected virtual void SalaryCalculator()
+    protected virtual void SalaryCalculation()
     {
         byte dayInMonth = 30;
         var oneDaySalary = EmployeeContractSalary / (double)dayInMonth;

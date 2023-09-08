@@ -32,6 +32,11 @@ namespace VWork
 
         private static HashSet<string> generatedIdNumbers = new HashSet<string>();
 
+        protected Person()
+        {
+            
+        }
+
         protected Person(string id, string name, byte age, string phone, bool personType)
         {
             PersonId = id;
