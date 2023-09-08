@@ -6,6 +6,8 @@ namespace VWork
     
     public abstract class Person
     {
+        protected internal string PersonId { get; set; }
+        
         public string PersonName { get; set; }
 
         protected internal byte PersonAge
@@ -26,19 +28,20 @@ namespace VWork
         
         public string PersonCity { get; set; }
 
-        public static bool boolPersonType { get; set; }
+        protected static bool boolPersonType { get; set; }
 
         private static HashSet<string> generatedIdNumbers = new HashSet<string>();
 
-        public Person(string name, byte age, string phone, bool personType)
+        protected Person(string id, string name, byte age, string phone, bool personType)
         {
+            PersonId = id;
             PersonName = name;
             PersonAge = age;
             PersonPhone = phone;
             boolPersonType = personType;
         }
 
-        public static string GenerateSymbolsArray()
+        protected static string GenerateSymbolsArray() 
         {
             Random random = new Random();
             const string chars = "АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЫЭЮЯ0123456789";
@@ -53,7 +56,7 @@ namespace VWork
             return generatedString;
         }
 
-        public static string GetPersonId(in bool boolPersonType)
+        protected static string GetPersonId(in bool boolPersonType) 
         {
             var isPersonType = boolPersonType;
             var tempById = GenerateSymbolsArray();
@@ -73,7 +76,7 @@ namespace VWork
             return personId;
         }
 
-        public static string ProcessListFromIdNumbers()
+        protected static string ProcessListFromIdNumbers() 
         {
             var personId = GetPersonId(boolPersonType);
 
